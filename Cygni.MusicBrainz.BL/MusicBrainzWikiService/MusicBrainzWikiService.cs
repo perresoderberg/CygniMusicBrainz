@@ -81,18 +81,18 @@ namespace Cygni.MusicBrainz.BL.MusicBrainzWikiService
 
             ConcurrentBag<MusicAlbumModel> musicAlbum = new ConcurrentBag<MusicAlbumModel>();
 
-            var Albums = artist.ReleaseGroup.Where(x => x.Type == "Album");
+            //var Albums = artist.ReleaseGroup.Where(x => x.Type == "Album");
 
-            var taskret = Albums.Select( x => GetAlbumAsync(x));
+            //var taskret = Albums.Select( x => GetAlbumAsync(x));
 
-            await Task.WhenAll(taskret);
+            //await Task.WhenAll(taskret);
 
-            var resp = taskret.Select(x => x.Result );
+            //var resp = taskret.Select(x => x.Result );
 
-            foreach (var item in resp)
-            {
-                musicAlbum.Add(item);
-            }
+            //foreach (var item in resp)
+            //{
+            //    musicAlbum.Add(item);
+            //}
 
 
 

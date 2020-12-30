@@ -1,4 +1,5 @@
 using Cygni.MusicBrainz.BL.MusicBrainzWikiService;
+using Cygni.MusicBrainz.Facade;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +23,7 @@ namespace Cygni.MusicBrainz.API
         {
             services.AddTransient<IMusicBrainzWikiService, MusicBrainzWikiService>();
             services.AddTransient<IMusicBrainzWikiServiceHelper, MusicBrainzWikiServiceHelper>();
-            //services.AddTransient<IBaseHTTPClient, BaseHTTPClient>();
+            services.AddTransient<IGenericHttpClientHandler, GenericHttpClientHandler>();
             services.AddControllers();
         }
 
@@ -40,7 +41,7 @@ namespace Cygni.MusicBrainz.API
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
